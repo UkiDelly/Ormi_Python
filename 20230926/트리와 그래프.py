@@ -42,18 +42,26 @@ class Tree:
     def DFS(self):
         result = []
         stack = [self.root]
-        
+
         while stack:
             current = stack.pop()
+            result.append(current)
             if current.right:
                 stack.append(current.right)
             if current.left:
                 stack.append(current.left)
-                
 
     # 너비 우선 (Queue)
     def BFS(self):
-        pass
+        result = []
+        queue = [self.root]
+
+        while queue:
+            current = queue.pop(0)
+            if current.right:
+                queue.append(current.right)
+            if current.left:
+                queue.append(current.left)
 
     def __len__(self):
         return self.__count
@@ -65,15 +73,13 @@ class Tree:
         return f"Tree(root={self.root})"
 
 
-tree = Tree(5)
-tree.add(3)
-tree.add(8)
-tree.add(1)
-tree.add(4)
-tree.add(6)
-tree.add(9)
+tree = Tree("A")
+tree.add("B")
+tree.add("C")
+tree.add("D")
+tree.add("E")
+tree.add("F")
+tree.add("G")
 
 print(tree)
 print(len(tree))
-
-print(tree.root.data)
